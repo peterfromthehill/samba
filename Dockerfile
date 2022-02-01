@@ -47,6 +47,9 @@ RUN apk --no-cache --no-progress upgrade && \
     echo '   server max protocol = SMB3' >>$file && \
     echo '   server min protocol = SMB2_10' >>$file && \
     echo '' >>$file && \
+    echo '   #Add execute bit' >>$file && \
+    echo '   acl allow execute always = True' >>$file && \
+    echo '' >>$file && \
     echo '   # Time Machine' >>$file && \
     echo '   fruit:delete_empty_adfiles = yes' >>$file && \
     echo '   fruit:time machine = yes' >>$file && \
