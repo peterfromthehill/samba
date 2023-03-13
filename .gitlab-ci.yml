@@ -116,7 +116,7 @@ build-samba-alpine:
       when: always
   variables:
     <<: *variables
-    PROJECT_VERSION: 4.17.5-r1
+    PROJECT_VERSION: 4.18.0-r0
     DISTRO_IMAGE: alpine
     DISTRO_TAG: edge
 
