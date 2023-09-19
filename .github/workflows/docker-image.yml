@@ -1,0 +1,33 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      # run: docker build . --file Dockerfile --tag docker.io/peterfromthehill:$(date +%s)
+    - name: Kaniko builder
+      # You may pin to the exact commit or the version.
+      # uses: aevea/action-kaniko@83ddee1c8b2f6e5b22b0985c5b3a8288f76c25b0
+      uses: aevea/action-kaniko@v0.10.0
+      with:
+        # Docker registry where the image will be pushed
+        registry: docker.io
+        # Username used for authentication to the Docker registry
+        username: peterfromthehill
+        # Password used for authentication to the Docker registry
+        password: ${{ secrets.DOCKER_TOKEN }}
+        # Image name
+        image: samba
+        # Image tag
+        tag: $(date +%s)
