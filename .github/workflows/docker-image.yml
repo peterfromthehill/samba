@@ -32,4 +32,4 @@ jobs:
         # Image name
         image: samba
         # Image tag
-        tag: $(date +%s)
+        tag: ${{ GITHUB_SHA }}
